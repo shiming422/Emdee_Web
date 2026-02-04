@@ -25,6 +25,10 @@ body {
     linear-gradient(160deg, #f7f3ec, #eef2f8 45%, #f6efe8 100%);
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -338,6 +342,7 @@ img {
   border: 1px solid rgba(16, 19, 26, 0.08);
   background: #f4f6fb;
   aspect-ratio: 4 / 3;
+  cursor: zoom-in;
 }
 
 .project-image img {
@@ -358,6 +363,79 @@ img {
   text-transform: uppercase;
   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 60%),
     linear-gradient(135deg, rgba(16, 19, 26, 0.04), var(--tone, rgba(255, 107, 61, 0.25)));
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.image-modal.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 20, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.image-modal__content {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 92vw);
+  max-height: 88vh;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 60px rgba(10, 14, 20, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.image-modal__content img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1px solid rgba(16, 19, 26, 0.08);
+}
+
+.image-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(16, 19, 26, 0.08);
+  color: var(--ink);
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.image-modal__close:hover {
+  background: rgba(16, 19, 26, 0.15);
+  transform: scale(1.03);
+}
+
+.image-modal__caption {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
 }
 
 .project-head {

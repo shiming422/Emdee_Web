@@ -252,3 +252,63 @@ tabButtons.forEach((button) => {
 
 setActiveTab(activeCategory);
 renderCategory(activeCategory, { skipTransition: true });
+
+const imageModal = document.getElementById("imageModal");
+const imageModalImg = document.getElementById("imageModalImg");
+const imageModalCaption = document.getElementById("imageModalCaption");
+const imageModalClose = imageModal ? imageModal.querySelector(".image-modal__close") : null;
+
+const openImageModal = (src, alt) => {
+  if (!imageModal || !imageModalImg) return;
+  imageModalImg.src = src;
+  imageModalImg.alt = alt || "";
+  if (imageModalCaption) {
+    imageModalCaption.textContent = alt || "";
+  }
+  imageModal.classList.add("is-visible");
+  imageModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("no-scroll");
+};
+
+const closeImageModal = () => {
+  if (!imageModal || !imageModalImg) return;
+  imageModal.classList.remove("is-visible");
+  imageModal.setAttribute("aria-hidden", "true");
+  imageModalImg.src = "";
+  imageModalImg.alt = "";
+  if (imageModalCaption) {
+    imageModalCaption.textContent = "";
+  }
+  document.body.classList.remove("no-scroll");
+};
+
+if (grid) {
+  grid.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    const image = target.closest(".project-image img");
+    if (!image || !(image instanceof HTMLImageElement)) return;
+    openImageModal(image.src, image.alt);
+  });
+}
+
+if (imageModal) {
+  imageModal.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.hasAttribute("data-close") || target === imageModal) {
+      closeImageModal();
+    }
+  });
+}
+
+if (imageModalClose) {
+  imageModalClose.addEventListener("click", closeImageModal);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  if (imageModal && imageModal.classList.contains("is-visible")) {
+    closeImageModal();
+  }
+});
