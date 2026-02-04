@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emdee | 业务与项目库</title>
+  <title>Emdee | 公司概览</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -19,30 +19,30 @@
       </div>
 
       <div class="sidebar-section">
-        <div class="sidebar-heading">资源管理器</div>
+
         <div class="tree">
           <div class="tree-group">
             <div class="tree-label">工作区</div>
-            <button class="tree-item is-active" data-target="overview">
+            <a class="tree-item is-active" href="index.html" aria-current="page">
               <span class="tree-dot"></span>
               公司概览
-            </button>
-            <button class="tree-item" data-target="business">
+            </a>
+            <a class="tree-item" href="business.html">
               <span class="tree-dot"></span>
               公司业务
-            </button>
-            <button class="tree-item" data-target="founders">
+            </a>
+            <a class="tree-item" href="founders.html">
               <span class="tree-dot"></span>
               创始人
-            </button>
-            <button class="tree-item" data-target="projects">
+            </a>
+            <a class="tree-item" href="projects.html">
               <span class="tree-dot"></span>
               单片机项目库
-            </button>
-            <button class="tree-item" data-target="contact">
+            </a>
+            <a class="tree-item" href="contact.html">
               <span class="tree-dot"></span>
               对外联络
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -63,8 +63,8 @@
             用系统化流程快速支撑量产与商业落地。
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#projects">进入项目库</a>
-            <a class="btn ghost" href="#business">查看业务矩阵</a>
+            <a class="btn primary" href="projects.html">进入项目库</a>
+            <a class="btn ghost" href="business.html">查看业务矩阵</a>
           </div>
           <div class="hero-stats">
             <div class="stat-card">
@@ -109,104 +109,7 @@
           <div class="panel-note">从原型验证到量产交付，保持工程节奏。</div>
         </div>
       </section>
-
-      <section class="section" id="business">
-        <div class="section-head">
-          <div>
-            <h2>公司业务</h2>
-            <p>把单片机项目归并为核心业务，同时扩展算法、视觉与应用端方案。</p>
-          </div>
-          <span class="section-chip">业务矩阵</span>
-        </div>
-        <div id="businessPrimary" class="business-primary"></div>
-        <div class="section-subhead">
-          <h3>扩展业务</h3>
-          <p>构建从算法到应用端的完整交付能力，形成多产品线支撑。</p>
-        </div>
-        <div id="businessGrid" class="business-grid"></div>
-      </section>
-
-      <section class="section" id="founders">
-        <div class="section-head">
-          <div>
-            <h2>创始人团队</h2>
-            <p>展示核心创始人履历，并预留扩展席位。</p>
-          </div>
-          <span class="section-chip">Founder</span>
-        </div>
-        <div id="founderGrid" class="founder-grid"></div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section-head">
-          <div>
-            <h2>单片机项目库</h2>
-            <p>包含业务逻辑图与核心代码，点击查看详情。</p>
-          </div>
-          <span class="section-chip">Project Library</span>
-        </div>
-        <div class="project-hint">提示：点击卡片内“查看详情”可打开逻辑图与代码视图。</div>
-        <div id="projectGrid" class="project-grid"></div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="section-head">
-          <div>
-            <h2>对外联络</h2>
-            <p>如需合作或项目支持，可在此填写信息。</p>
-          </div>
-          <span class="section-chip">Contact</span>
-        </div>
-        <div class="contact-card">
-          <div>
-            <div class="contact-title">合作邮箱</div>
-            <div class="contact-value">contact@yourmail.com（预留）</div>
-          </div>
-          <div>
-            <div class="contact-title">项目窗口</div>
-            <div class="contact-value">嵌入式交付 / 边缘 AI</div>
-          </div>
-          <button class="btn ghost" type="button">提交需求（预留）</button>
-        </div>
-      </section>
     </main>
-  </div>
-
-  <div class="detail-panel" id="detailPanel" aria-hidden="true">
-    <div class="detail-backdrop" data-close></div>
-    <div class="detail-body" role="dialog" aria-modal="true" aria-label="项目详情">
-      <button class="detail-close" type="button" aria-label="关闭">×</button>
-      <div class="detail-header">
-        <div>
-          <div class="detail-kicker">项目详情</div>
-          <h3 id="detailTitle"></h3>
-          <p id="detailSummary"></p>
-        </div>
-        <div class="detail-status" id="detailStatus"></div>
-      </div>
-      <div class="detail-tags" id="detailTags"></div>
-      <div class="detail-section">
-        <h4>业务逻辑图</h4>
-        <div class="detail-gallery" id="detailGallery"></div>
-      </div>
-      <div class="detail-section">
-        <h4>核心代码</h4>
-        <pre class="code-block"><code id="detailCode"></code></pre>
-      </div>
-      <div class="detail-section">
-        <h4>交付路径</h4>
-        <div class="detail-steps" id="detailSteps"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="image-modal" id="imageModal" aria-hidden="true">
-    <div class="image-modal__backdrop" data-close></div>
-    <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="图片预览">
-      <button class="image-modal__close" type="button" aria-label="关闭">×</button>
-      <img id="imageModalImg" alt="" />
-      <div class="image-modal__caption" id="imageModalCaption"></div>
-    </div>
   </div>
 
   <script src="./main.js"></script>

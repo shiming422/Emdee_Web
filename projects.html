@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emdee | 单片机项目库</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo">EM</div>
+        <div>
+          <div class="brand-title">Emdee</div>
+          <div class="brand-sub">Embedded Studio</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-heading">资源管理器</div>
+        <div class="tree">
+          <div class="tree-group">
+            <div class="tree-label">工作区</div>
+            <a class="tree-item" href="index.html">
+              <span class="tree-dot"></span>
+              公司概览
+            </a>
+            <a class="tree-item" href="business.html">
+              <span class="tree-dot"></span>
+              公司业务
+            </a>
+            <a class="tree-item" href="founders.html">
+              <span class="tree-dot"></span>
+              创始人
+            </a>
+            <a class="tree-item is-active" href="projects.html" aria-current="page">
+              <span class="tree-dot"></span>
+              单片机项目库
+            </a>
+            <a class="tree-item" href="contact.html">
+              <span class="tree-dot"></span>
+              对外联络
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="status-pill">在线</span>
+        <span class="status-text">同步中 · v2026</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="section page-header">
+        <div class="kicker">PROJECT LIBRARY</div>
+        <h1>单片机项目库</h1>
+        <p class="lead">包含业务逻辑图与核心代码，支持详细查看。</p>
+      </section>
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div>
+            <h2>项目清单</h2>
+            <p>点击卡片内“查看详情”可打开逻辑图与代码视图。</p>
+          </div>
+          <span class="section-chip">Project Library</span>
+        </div>
+        <div class="project-hint">提示：逻辑图可点击放大查看。</div>
+        <div id="projectGrid" class="project-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="detail-panel" id="detailPanel" aria-hidden="true">
+    <div class="detail-backdrop" data-close></div>
+    <div class="detail-body" role="dialog" aria-modal="true" aria-label="项目详情">
+      <button class="detail-close" type="button" aria-label="关闭">×</button>
+      <div class="detail-header">
+        <div>
+          <div class="detail-kicker">项目详情</div>
+          <h3 id="detailTitle"></h3>
+          <p id="detailSummary"></p>
+        </div>
+        <div class="detail-status" id="detailStatus"></div>
+      </div>
+      <div class="detail-tags" id="detailTags"></div>
+      <div class="detail-section">
+        <h4>业务逻辑图</h4>
+        <div class="detail-gallery" id="detailGallery"></div>
+      </div>
+      <div class="detail-section">
+        <h4>核心代码</h4>
+        <pre class="code-block"><code id="detailCode"></code></pre>
+      </div>
+      <div class="detail-section">
+        <h4>交付路径</h4>
+        <div class="detail-steps" id="detailSteps"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal__backdrop" data-close></div>
+    <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="图片预览">
+      <button class="image-modal__close" type="button" aria-label="关闭">×</button>
+      <img id="imageModalImg" alt="" />
+      <div class="image-modal__caption" id="imageModalCaption"></div>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>

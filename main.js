@@ -50,14 +50,42 @@ const businessExtensions = [
 
 const founders = [
   {
-    name: "创始人 / 负责人（待填写）",
+    name: "创始人 / 负责人",
     role: "嵌入式系统 · 交付负责人",
-    summary: "填写创始人的教育背景、行业经历与核心优势。",
-    tags: ["嵌入式系统", "项目交付", "团队管理"],
+    summary:
+      "覆盖嵌入式硬件、软件与边缘视觉的系统级开发，具备从设计、联调到部署验证的完整交付能力。",
+    avatar: "./assets/avatar.png",
+    tags: ["嵌入式硬件", "嵌入式软件", "边缘计算", "物联网"],
+    skills: [
+      {
+        title: "嵌入式硬件设计与调试能力",
+        detail:
+          "具备嵌入式硬件系统设计与调试经验，能够独立完成原理图设计、PCB Layout 及板级调试工作；熟悉常见电源管理、电平匹配及接口电路设计，具备插件与贴片焊接经验，可处理 SMD、QFP、SOP 等常见封装器件，能够搭建并验证满足嵌入式软件开发与系统联调需求的硬件平台。熟练使用嘉立创 EDA、Altium Designer 等 PCB 设计工具完成完整硬件开发流程。",
+      },
+      {
+        title: "嵌入式软件开发与系统开发能力",
+        detail:
+          "基于 CubeMX + Keil MDK、CCS、MRS、Vivado 等开发环境开展 MCU / FPGA 开发，熟悉 STM32 多系列、ESP32 及 51 单片机的外设配置、底层驱动适配与应用开发；掌握 Python、MATLAB、Qt 上位机开发，能够实现上位机与嵌入式设备之间的多协议通信及系统级联调。熟悉 RTOS（FreeRTOS、RT-Thread）的任务调度、线程间通信与同步机制；具备基于 Raspberry Pi、Allwinner、Rockchip 等平台的嵌入式 Linux 系统移植、设备树配置及外设驱动适配经验，能够完成系统部署与基础功能验证。",
+      },
+      {
+        title: "通信协议与物联网系统集成能力",
+        detail:
+          "掌握 TCP/IP、UART、SPI、I²C 等常用通信协议的原理与调试方法，熟悉 4G、5G、WiFi、蓝牙、LoRa、ZigBee 等物联网通信技术，具备将多种通信模块稳定集成至嵌入式系统并完成系统级联调的工程实践能力。",
+      },
+      {
+        title: "计算机视觉与边缘计算应用能力",
+        detail:
+          "熟悉典型目标检测算法框架（如 YOLOv5、YOLOv8、YOLOv11），具备从数据准备、模型训练到部署验证的完整实践经验；能够将视觉算法部署至 NVIDIA Jetson、Raspberry Pi 等边缘计算平台，并熟悉 OpenMV、K210、K230 等嵌入式视觉设备在实际项目中的应用与调试。",
+      },
+    ],
     highlights: [
-      "教育背景：填写学校 / 专业 / 学位",
-      "代表经历：填写关键项目或岗位",
-      "核心能力：硬件架构、算法策略、跨团队协同",
+      "2025“博创杯”嵌入式人工智能设计大赛 国特",
+      "2024 全球人工智能算法精英赛 国一",
+      "2025 中国高校计算机大赛-嵌入式设计赛 国三",
+      "2025 Robocom 机器人开发大赛 国二",
+      "《物联网技术》期刊第一作者论文一篇（已刊登）",
+      "软件著作权一份（登记号 2025SR2321947）",
+      "2025 年大学生创业训练计划省级项目",
     ],
   },
   {
@@ -145,6 +173,39 @@ const projectLibrary = [
     code: `// 车辆检测与引导\nif (sensor_triggered()) {\n  update_slot_state();\n  display_guidance();\n}`,
     steps: ["检测模块配置", "引导策略建模", "现场联调"],
   },
+  {
+    id: "wind-monitor",
+    title: "风力发电监测系统",
+    status: "已完成",
+    image: "./assets/wind.png",
+    summary: "风电运行状态采集与监测展示，确保远端运行稳定。",
+    tags: ["风电监测", "数据采集", "STM32"],
+    logicImages: ["./assets/wind.png", "./assets/grain-silo.png"],
+    code: `// 风电监测采集\nrpm = read_rpm();\nvoltage = read_voltage();\nif (rpm < limit) {\n  send_alert();\n}\nreport_metrics();`,
+    steps: ["采集通道配置", "阈值告警策略", "远程上报与可视化"],
+  },
+  {
+    id: "k210-lora",
+    title: "K210 LoRa 项目",
+    status: "进行中",
+    image: "./assets/k210-lora.jpg",
+    summary: "边缘计算与低功耗通信结合，强化远距离链路稳定性。",
+    tags: ["K210", "LoRa", "边缘计算"],
+    logicImages: ["./assets/k210-lora.jpg", "./assets/car-lighting.png"],
+    code: `// LoRa 通信链路\nif (packet_ready()) {\n  send_packet();\n  wait_ack();\n}\nupdate_link_quality();`,
+    steps: ["链路参数调优", "边缘侧任务编排", "稳定性压力测试"],
+  },
+  {
+    id: "irrigation",
+    title: "多传感器协同灌溉",
+    status: "进行中",
+    image: "./assets/irrigation.png",
+    summary: "多源采集协同灌溉策略，提升水资源利用效率。",
+    tags: ["多传感器", "灌溉控制", "C51"],
+    logicImages: ["./assets/irrigation.png", "./assets/shoe-cabinet.png"],
+    code: `// 灌溉联动策略\nif (soil_moisture < threshold) {\n  open_valve();\n  log_action();\n}\n`,
+    steps: ["传感器部署与标定", "灌溉策略联动", "现场连续运行测试"],
+  },
 ];
 
 const businessPrimaryEl = document.getElementById("businessPrimary");
@@ -185,14 +246,43 @@ const renderFounders = () => {
   founderGridEl.innerHTML = founders
     .map((founder) => {
       const placeholderClass = founder.placeholder ? "placeholder" : "";
+      const avatarHtml = founder.avatar
+        ? `<div class="founder-avatar"><img src="${founder.avatar}" alt="${founder.name} 头像" loading="lazy" /></div>`
+        : "";
+      const skillsHtml =
+        founder.skills && founder.skills.length
+          ? `
+            <div class="founder-section">
+              <div class="founder-section-title">个人技能</div>
+              <div class="founder-skill-list">
+                ${founder.skills
+                  .map(
+                    (skill) => `
+                  <div class="founder-skill">
+                    <div class="founder-skill-title">${skill.title}</div>
+                    <div class="founder-skill-desc">${skill.detail}</div>
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+            </div>
+          `
+          : "";
       return `
         <article class="founder-card ${placeholderClass}">
-          <div class="founder-role">${founder.role}</div>
-          <div class="founder-name">${founder.name}</div>
-          <div class="founder-summary">${founder.summary}</div>
+          <div class="founder-top">
+            ${avatarHtml}
+            <div class="founder-meta">
+              <div class="founder-role">${founder.role}</div>
+              <div class="founder-name">${founder.name}</div>
+              <div class="founder-summary">${founder.summary}</div>
+            </div>
+          </div>
           <div class="founder-tags">
             ${founder.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
           </div>
+          ${skillsHtml}
           <div class="founder-highlights">
             ${founder.highlights.map((item) => `<div class="founder-highlight">${item}</div>`).join("")}
           </div>
@@ -230,42 +320,6 @@ const renderProjects = () => {
 renderBusiness();
 renderFounders();
 renderProjects();
-
-const navButtons = document.querySelectorAll(".tree-item");
-const setActiveNav = (targetId) => {
-  navButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.target === targetId);
-  });
-};
-
-navButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const targetId = button.dataset.target;
-    const target = targetId ? document.getElementById(targetId) : null;
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActiveNav(targetId);
-    }
-  });
-});
-
-const sectionIds = Array.from(new Set(Array.from(navButtons).map((button) => button.dataset.target)));
-const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
-
-if (sections.length) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveNav(entry.target.id);
-        }
-      });
-    },
-    { rootMargin: "-40% 0px -50% 0px", threshold: 0.1 }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-}
 
 const detailPanel = document.getElementById("detailPanel");
 const detailTitle = document.getElementById("detailTitle");
