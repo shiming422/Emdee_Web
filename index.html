@@ -2,116 +2,202 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emdee | 单片机作品集</title>
+  <title>Emdee | 业务与项目库</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <nav class="topbar">
-        <div class="brand">
-          <div class="brand-mark"></div>
-          <div>
-            <div class="brand-title">Emdee</div>
-            <div class="brand-sub">嵌入式创新团队</div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo">EM</div>
+        <div>
+          <div class="brand-title">Emdee</div>
+          <div class="brand-sub">Embedded Studio</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-heading">资源管理器</div>
+        <div class="tree">
+          <div class="tree-group">
+            <div class="tree-label">工作区</div>
+            <button class="tree-item is-active" data-target="overview">
+              <span class="tree-dot"></span>
+              公司概览
+            </button>
+            <button class="tree-item" data-target="business">
+              <span class="tree-dot"></span>
+              公司业务
+            </button>
+            <button class="tree-item" data-target="founders">
+              <span class="tree-dot"></span>
+              创始人
+            </button>
+            <button class="tree-item" data-target="projects">
+              <span class="tree-dot"></span>
+              单片机项目库
+            </button>
+            <button class="tree-item" data-target="contact">
+              <span class="tree-dot"></span>
+              对外联络
+            </button>
           </div>
         </div>
-        <div class="brand-badge">Emdee 成员</div>
-      </nav>
+      </div>
 
-      <div class="hero-main">
-        <div class="hero-text">
-          <p class="eyebrow">单片机 / 嵌入式系统作品集</p>
-          <h1>让硬件成为可感知的体验</h1>
+      <div class="sidebar-footer">
+        <span class="status-pill">在线</span>
+        <span class="status-text">同步中 · v2026</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="section hero" id="overview">
+        <div class="hero-main">
+          <div class="kicker">EMDEE / 硬件与边缘智能工作室</div>
+          <h1>把单片机项目升级为可规模交付的公司业务</h1>
           <p class="lead">
-            这里呈现我在 Emdee 参与的单片机项目实践，覆盖传感器采集、控制逻辑、PCB 设计与系统集成，
-            将功能性方案打磨为可落地的工程成果。
+            我们聚焦嵌入式系统、边缘 AI 与应用端整合，将硬件原型打磨为可复制的工程交付，
+            用系统化流程快速支撑量产与商业落地。
           </p>
-          <div class="hero-meta">
-            <div class="meta-item">
-              <span class="meta-label">所属公司</span>
-              <span class="meta-value">Emdee</span>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">进入项目库</a>
+            <a class="btn ghost" href="#business">查看业务矩阵</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">业务方向</span>
+              <span class="stat-value">6</span>
             </div>
-            <div class="meta-item">
-              <span class="meta-label">方向</span>
-              <span class="meta-value">嵌入式系统 / 硬件整合</span>
+            <div class="stat-card">
+              <span class="stat-label">交付项目</span>
+              <span class="stat-value">18+</span>
             </div>
-            <div class="meta-item">
-              <span class="meta-label">关键能力</span>
-              <span class="meta-value">传感器 | 控制策略 | PCB</span>
+            <div class="stat-card">
+              <span class="stat-label">核心能力</span>
+              <span class="stat-value">硬件 + 算法 + App</span>
             </div>
           </div>
         </div>
-
         <div class="hero-panel">
-          <div class="panel-title">项目概览</div>
-          <div class="panel-stats">
-            <div class="stat">
-              <div class="stat-value" id="totalCount">0</div>
-              <div class="stat-label">项目总数</div>
+          <div class="panel-title">交付管线</div>
+          <div class="pipeline">
+            <div class="pipeline-step">
+              <div class="step-index">01</div>
+              <div>
+                <div class="step-title">需求拆解</div>
+                <div class="step-desc">业务目标转化为可验证的硬件与算法指标。</div>
+              </div>
             </div>
-            <div class="stat">
-              <div class="stat-value" id="doneCount">0</div>
-              <div class="stat-label">已完成</div>
+            <div class="pipeline-step">
+              <div class="step-index">02</div>
+              <div>
+                <div class="step-title">系统方案</div>
+                <div class="step-desc">软硬件协同设计，规划传感、执行与通信结构。</div>
+              </div>
             </div>
-            <div class="stat">
-              <div class="stat-value" id="doingCount">0</div>
-              <div class="stat-label">进行中</div>
+            <div class="pipeline-step">
+              <div class="step-index">03</div>
+              <div>
+                <div class="step-title">联调验证</div>
+                <div class="step-desc">业务逻辑与代码闭环，快速迭代稳定性。</div>
+              </div>
             </div>
           </div>
-          <div class="panel-highlight">
-            <div>
-              <div class="highlight-title">Emdee 项目协作</div>
-              <div class="highlight-desc">从需求拆解到整机验证，持续优化硬件体验。</div>
-            </div>
-            <div class="highlight-tag">Engineering</div>
+          <div class="panel-note">从原型验证到量产交付，保持工程节奏。</div>
+        </div>
+      </section>
+
+      <section class="section" id="business">
+        <div class="section-head">
+          <div>
+            <h2>公司业务</h2>
+            <p>把单片机项目归并为核心业务，同时扩展算法、视觉与应用端方案。</p>
           </div>
+          <span class="section-chip">业务矩阵</span>
         </div>
-      </div>
-    </header>
+        <div id="businessPrimary" class="business-primary"></div>
+        <div class="section-subhead">
+          <h3>扩展业务</h3>
+          <p>构建从算法到应用端的完整交付能力，形成多产品线支撑。</p>
+        </div>
+        <div id="businessGrid" class="business-grid"></div>
+      </section>
 
-    <section class="section" id="projects">
-      <div class="section-head">
-        <div class="section-title">
-          <h2>代表项目</h2>
-          <p id="project-desc">精选展示近期完成及推进中的单片机设计，突出系统性与落地能力。</p>
+      <section class="section" id="founders">
+        <div class="section-head">
+          <div>
+            <h2>创始人团队</h2>
+            <p>展示核心创始人履历，并预留扩展席位。</p>
+          </div>
+          <span class="section-chip">Founder</span>
         </div>
-        <div class="tab-group" role="tablist" aria-label="项目分类">
-          <button class="tab-btn is-active" data-category="mcu" role="tab" aria-selected="true">单片机项目</button>
-          <button class="tab-btn" data-category="algorithm" role="tab" aria-selected="false">算法设计</button>
-          <button class="tab-btn" data-category="yolo" role="tab" aria-selected="false">YOLO 识别设计</button>
-          <button class="tab-btn" data-category="app" role="tab" aria-selected="false">App 设计</button>
-        </div>
-      </div>
-      <div id="project-grid" class="project-grid"></div>
-    </section>
+        <div id="founderGrid" class="founder-grid"></div>
+      </section>
 
-    <section class="section">
-      <div class="section-head">
-        <h2>能力矩阵</h2>
-        <p>围绕 Emdee 项目交付，形成从硬件到系统的闭环能力。</p>
-      </div>
-      <div class="capability-grid">
-        <div class="capability-card">
-          <h3>系统方案设计</h3>
-          <p>根据场景需求规划单片机架构、模块划分与软硬件协同策略。</p>
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div>
+            <h2>单片机项目库</h2>
+            <p>包含业务逻辑图与核心代码，点击查看详情。</p>
+          </div>
+          <span class="section-chip">Project Library</span>
         </div>
-        <div class="capability-card">
-          <h3>传感器与执行控制</h3>
-          <p>多传感器采集、信号处理与执行单元控制的可靠落地。</p>
-        </div>
-        <div class="capability-card">
-          <h3>PCB 与硬件集成</h3>
-          <p>从原理到 PCB 设计，配合调试验证实现工程可交付。</p>
-        </div>
-      </div>
-    </section>
+        <div class="project-hint">提示：点击卡片内“查看详情”可打开逻辑图与代码视图。</div>
+        <div id="projectGrid" class="project-grid"></div>
+      </section>
 
-    <footer class="footer">
-      <div>Emdee · 单片机项目展示</div>
-      <div class="footer-note">以工程交付为导向，持续迭代硬件体验。</div>
-    </footer>
+      <section class="section" id="contact">
+        <div class="section-head">
+          <div>
+            <h2>对外联络</h2>
+            <p>如需合作或项目支持，可在此填写信息。</p>
+          </div>
+          <span class="section-chip">Contact</span>
+        </div>
+        <div class="contact-card">
+          <div>
+            <div class="contact-title">合作邮箱</div>
+            <div class="contact-value">contact@yourmail.com（预留）</div>
+          </div>
+          <div>
+            <div class="contact-title">项目窗口</div>
+            <div class="contact-value">嵌入式交付 / 边缘 AI</div>
+          </div>
+          <button class="btn ghost" type="button">提交需求（预留）</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="detail-panel" id="detailPanel" aria-hidden="true">
+    <div class="detail-backdrop" data-close></div>
+    <div class="detail-body" role="dialog" aria-modal="true" aria-label="项目详情">
+      <button class="detail-close" type="button" aria-label="关闭">×</button>
+      <div class="detail-header">
+        <div>
+          <div class="detail-kicker">项目详情</div>
+          <h3 id="detailTitle"></h3>
+          <p id="detailSummary"></p>
+        </div>
+        <div class="detail-status" id="detailStatus"></div>
+      </div>
+      <div class="detail-tags" id="detailTags"></div>
+      <div class="detail-section">
+        <h4>业务逻辑图</h4>
+        <div class="detail-gallery" id="detailGallery"></div>
+      </div>
+      <div class="detail-section">
+        <h4>核心代码</h4>
+        <pre class="code-block"><code id="detailCode"></code></pre>
+      </div>
+      <div class="detail-section">
+        <h4>交付路径</h4>
+        <div class="detail-steps" id="detailSteps"></div>
+      </div>
+    </div>
   </div>
 
   <div class="image-modal" id="imageModal" aria-hidden="true">
@@ -126,4 +212,3 @@
   <script src="./main.js"></script>
 </body>
 </html>
-
