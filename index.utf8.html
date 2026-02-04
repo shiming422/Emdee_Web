@@ -73,8 +73,16 @@
 
     <section class="section" id="projects">
       <div class="section-head">
-        <h2>代表项目</h2>
-        <p>精选展示近期完成及推进中的单片机设计，突出系统性与落地能力。</p>
+        <div class="section-title">
+          <h2>代表项目</h2>
+          <p id="project-desc">精选展示近期完成及推进中的单片机设计，突出系统性与落地能力。</p>
+        </div>
+        <div class="tab-group" role="tablist" aria-label="项目分类">
+          <button class="tab-btn is-active" data-category="mcu" role="tab" aria-selected="true">单片机项目</button>
+          <button class="tab-btn" data-category="algorithm" role="tab" aria-selected="false">算法设计</button>
+          <button class="tab-btn" data-category="yolo" role="tab" aria-selected="false">YOLO 识别设计</button>
+          <button class="tab-btn" data-category="app" role="tab" aria-selected="false">App 设计</button>
+        </div>
       </div>
       <div id="project-grid" class="project-grid"></div>
     </section>

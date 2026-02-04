@@ -1,105 +1,254 @@
-Ôªøconst projects = [
-  {
-    title: "Ê±ΩËΩ¶ÁÅØÂÖâÊô∫ËÉΩÊéßÂà∂Á≥ªÁªü",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/car-lighting.png",
-    description: "Âõ¥ÁªïËΩ¶ËæÜÁÅØÂÖâÁöÑËá™Âä®ÂåñÊéßÂà∂ÔºåÂº∫Ë∞ÉËæìÂÖ•ÈááÈõÜ„ÄÅÈÄªËæëÂà§Êñ≠‰∏éÁ®≥ÂÆöËæìÂá∫„ÄÇ",
-    tags: ["ÁÅØÂÖâÊéßÂà∂", "PCB ËÆæËÆ°", "Á≥ªÁªüËÅîË∞É"],
+const projectGroups = {
+  mcu: {
+    label: "µ•∆¨ª˙œÓƒø",
+    description: "æ´—°’π æΩ¸∆⁄ÕÍ≥…º∞Õ∆Ω¯÷–µƒµ•∆¨ª˙…Ëº∆£¨Õª≥ˆœµÕ≥–‘”Î¬‰µÿƒ‹¡¶°£",
+    items: [
+      {
+        title: "∆˚≥µµ∆π‚÷«ƒ‹øÿ÷∆œµÕ≥",
+        status: "“—ÕÍ≥…",
+        image: "./assets/car-lighting.png",
+        description: "Œß»∆≥µ¡æµ∆π‚µƒ◊‘∂ØªØøÿ÷∆£¨«øµ˜ ‰»Î≤…ºØ°¢¬ﬂº≠≈–∂œ”ÎŒ»∂® ‰≥ˆ°£",
+        tags: ["µ∆π‚øÿ÷∆", "PCB …Ëº∆", "œµÕ≥¡™µ˜"],
+      },
+      {
+        title: "C51 ÷«ƒ‹¡∏≤÷",
+        status: "“—ÕÍ≥…",
+        image: "./assets/grain-silo.png",
+        description: "√ÊœÚ¡∏≤÷ª∑æ≥º‡≤‚”Î◊¥Ã¨Ã· æµƒµ•∆¨ª˙∑Ω∞∏£¨πÿ◊¢ø…øø≤…ºØ”Îøÿ÷∆±’ª∑°£",
+        tags: ["ª∑æ≥º‡≤‚", "C51", "π§≥Ã—È÷§"],
+      },
+      {
+        title: "51 ÷«ƒ‹–¨πÒœµÕ≥",
+        status: "“—ÕÍ≥…",
+        image: "./assets/shoe-cabinet.png",
+        description: "Œß»∆–¨πÒƒ⁄≤øÕ®∑Á”Î◊¥Ã¨π‹¿Ì…Ëº∆øÿ÷∆¬ﬂº≠£¨Ã·…˝ π”√ÃÂ—È”Î∞≤»´–‘°£",
+        tags: ["Õ®∑Áøÿ÷∆", "¥´∏–∆˜", "PCB"],
+      },
+      {
+        title: "–ƒ¬ —™—ıºÏ≤‚œµÕ≥",
+        status: "“—ÕÍ≥…",
+        image: "./assets/spo2.png",
+        description: "æ€ΩπÃÂ’˜≤…ºØ”Îœ‘ æµƒ”≤º˛œµÕ≥’˚∫œ£¨«øµ˜ ˝æ›Œ»∂®–‘”Î’π æ«ÂŒ˙∂»°£",
+        tags: ["ÃÂ’˜≤…ºØ", "32 Œª MCU", "œ‘ æ"],
+      },
+      {
+        title: "÷«ƒ‹øÏµ›πÒ",
+        status: "“—ÕÍ≥…",
+        image: "./assets/smart-locker.png",
+        description: "∂‡≤’√≈øÿ÷∆”Î◊¥Ã¨∑¥¿°µƒœµÕ≥…Ëº∆£¨Õª≥ˆŒ»∂®Õ®–≈”Î÷¥––øÿ÷∆°£",
+        tags: ["πÒÃÂøÿ÷∆", "œµÕ≥ºØ≥…", "32 Œª MCU"],
+      },
+      {
+        title: "÷«ƒ‹Õ£≥µ≥°",
+        status: "“—ÕÍ≥…",
+        image: "./assets/parking.png",
+        description: "√ÊœÚ≥µ¡æºÏ≤‚”Î“˝µºøÿ÷∆µƒ«∂»Î Ω∑Ω∞∏£¨ºÊπÀ¡˜≥Ã–ß¬ ”Îø…øø–‘°£",
+        tags: ["≥µ¡æºÏ≤‚", "STM32", "øÿ÷∆≤ﬂ¬‘"],
+      },
+      {
+        title: "∑Á¡¶∑¢µÁº‡≤‚œµÕ≥",
+        status: "“—ÕÍ≥…",
+        image: "./assets/wind.png",
+        description: "∑ÁµÁ‘À––◊¥Ã¨≤…ºØ”Îº‡≤‚’π æµƒµ•∆¨ª˙∑Ω∞∏£¨«øµ˜ ˝æ›Œ»∂®”Îπ§≥Ã¬‰µÿ°£",
+        tags: ["∑ÁµÁº‡≤‚", "STM32", " ˝æ›≤…ºØ"],
+      },
+      {
+        title: "K210 LoRa œÓƒø",
+        status: "Ω¯––÷–",
+        image: "./assets/k210-lora.jpg",
+        description: "Ω·∫œ±ﬂ‘µº∆À„”ÎµÕπ¶∫ƒÕ®–≈µƒœµÕ≥ÃΩÀ˜£¨≥÷–¯”≈ªØŒ»∂®–‘”Î¡¥¬∑±Ìœ÷°£",
+        tags: ["K210", "LoRa", "Õ®–≈"],
+      },
+      {
+        title: "∂‡¥´∏–∆˜–≠Õ¨π‡∏»",
+        status: "Ω¯––÷–",
+        image: "./assets/irrigation.png",
+        description: "∂‡¥´∏–∆˜–≠Õ¨«˝∂Øπ‡∏»≤ﬂ¬‘£¨«øªØ≤…ºØ»⁄∫œ”Î÷¥––¡™∂Ø°£",
+        tags: ["C51", "π‡∏»øÿ÷∆", "∂‡¥´∏–∆˜"],
+      },
+    ],
   },
-  {
-    title: "C51 Êô∫ËÉΩÁ≤Æ‰ªì",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/grain-silo.png",
-    description: "Èù¢ÂêëÁ≤Æ‰ªìÁéØÂ¢ÉÁõëÊµã‰∏éÁä∂ÊÄÅÊèêÁ§∫ÁöÑÂçïÁâáÊú∫ÊñπÊ°àÔºåÂÖ≥Ê≥®ÂèØÈù†ÈááÈõÜ‰∏éÊéßÂà∂Èó≠ÁéØ„ÄÇ",
-    tags: ["ÁéØÂ¢ÉÁõëÊµã", "C51", "Â∑•Á®ãÈ™åËØÅ"],
+  algorithm: {
+    label: "À„∑®…Ëº∆",
+    description: "Œß»∆øÿ÷∆≤ﬂ¬‘°¢–≈∫≈¥¶¿Ì”Î”≈ªØæˆ≤ﬂµƒÀ„∑®∑Ω∞∏£¨«øµ˜Œ»∂®–‘”Îø…¬‰µÿ–‘°£",
+    items: [
+      {
+        title: "∂‡¥´∏–∆˜»⁄∫œ¬À≤®",
+        status: "“—ÕÍ≥…",
+        placeholder: "ALGO",
+        tone: "#ffd9c9",
+        description: "’Î∂‘∂‡‘¥≤…ºØ‘Î…˘…Ëº∆»⁄∫œÀ„∑®£¨Ã·∏ﬂ ˝æ›Œ»∂®–‘”Îø…”√–‘°£",
+        tags: ["ø®∂˚¬¸¬À≤®", "»⁄∫œ≤ﬂ¬‘", "Œ»∂®–‘"],
+      },
+      {
+        title: "¬∑æ∂πÊªÆ”Î±‹’œ≤ﬂ¬‘",
+        status: "Ω¯––÷–",
+        placeholder: "PATH",
+        tone: "#ffe6b5",
+        description: "“‘ µ ±–‘Œ™ƒø±ÍππΩ®πÊªÆƒ£–Õ£¨Ã·…˝∏¥‘”ª∑æ≥œ¬µƒø…÷¥––∂»°£",
+        tags: ["A* À—À˜", "±‹’œ", " µ ±–‘"],
+      },
+      {
+        title: "π¶∫ƒ◊‘  ”¶øÿ÷∆",
+        status: "“—ÕÍ≥…",
+        placeholder: "CTRL",
+        tone: "#ffd3e0",
+        description: "∏˘æ›∏∫‘ÿ”Îª∑æ≥∂ØÃ¨µ˜’˚≤…—˘”Î÷¥––∆µ¬ £¨ΩµµÕœµÕ≥ƒ‹∫ƒ°£",
+        tags: ["øÿ÷∆≤ﬂ¬‘", "π¶∫ƒ”≈ªØ", "±’ª∑"],
+      },
+    ],
   },
-  {
-    title: "51 Êô∫ËÉΩÈûãÊüúÁ≥ªÁªü",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/shoe-cabinet.png",
-    description: "Âõ¥ÁªïÈûãÊüúÂÜÖÈÉ®ÈÄöÈ£é‰∏éÁä∂ÊÄÅÁÆ°ÁêÜËÆæËÆ°ÊéßÂà∂ÈÄªËæëÔºåÊèêÂçá‰ΩøÁî®‰ΩìÈ™å‰∏éÂÆâÂÖ®ÊÄß„ÄÇ",
-    tags: ["ÈÄöÈ£éÊéßÂà∂", "‰º†ÊÑüÂô®", "PCB"],
+  yolo: {
+    label: "YOLO  ∂±…Ëº∆",
+    description: "ƒø±ÍºÏ≤‚ƒ£–Õ—µ¡∑”Î≤ø  µº˘£¨∏≤∏« ˝æ›±Í◊¢°¢—µ¡∑µ˜≤Œ”ÎÕ∆¿Ì”≈ªØ°£",
+    items: [
+      {
+        title: "YOLOv8 π§“µ»±œ›ºÏ≤‚",
+        status: "“—ÕÍ≥…",
+        placeholder: "YOLO",
+        tone: "#d4e4ff",
+        description: "ππΩ®π§“µ»±œ› ˝æ›ºØ≤¢ÕÍ≥…ƒ£–Õ—µ¡∑£¨Ã·…˝œ÷≥° ∂±◊º»∑¬ °£",
+        tags: ["YOLOv8", "»±œ›ºÏ≤‚", " ˝æ›±Í◊¢"],
+      },
+      {
+        title: "±ﬂ‘µ∂Àƒ£–Õ¡øªØ≤ø ",
+        status: "Ω¯––÷–",
+        placeholder: "EDGE",
+        tone: "#d1f0ff",
+        description: "Õ®π˝¡øªØ”ÎºÙ÷¶Ã·…˝Õ∆¿ÌÀŸ∂»£¨»∑±£∂À≤‡Œ»∂®‘À––°£",
+        tags: ["INT8", "Õ∆¿Ìº”ÀŸ", "NPU"],
+      },
+      {
+        title: "∂‡≥°æ∞ ∂±–ßπ˚”≈ªØ",
+        status: "“—ÕÍ≥…",
+        placeholder: "TUNE",
+        tone: "#cfe1ff",
+        description: "’Î∂‘≤ªÕ¨π‚’’”Î±≥æ∞≥°æ∞”≈ªØƒ£–Õ∑∫ªØ±Ìœ÷°£",
+        tags: ["mAP Ã·…˝", "‘ˆπ„", "«®“∆—ßœ∞"],
+      },
+    ],
   },
-  {
-    title: "ÂøÉÁéáË°ÄÊ∞ßÊ£ÄÊµãÁ≥ªÁªü",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/spo2.png",
-    description: "ËÅöÁÑ¶‰ΩìÂæÅÈááÈõÜ‰∏éÊòæÁ§∫ÁöÑÁ°¨‰ª∂Á≥ªÁªüÊï¥ÂêàÔºåÂº∫Ë∞ÉÊï∞ÊçÆÁ®≥ÂÆöÊÄß‰∏éÂ±ïÁ§∫Ê∏ÖÊô∞Â∫¶„ÄÇ",
-    tags: ["‰ΩìÂæÅÈááÈõÜ", "32 ‰Ωç MCU", "ÊòæÁ§∫"],
+  app: {
+    label: "App …Ëº∆",
+    description: "Œ™”≤º˛œµÕ≥Ã·π© App ∂Àπ‹¿Ì°¢øÿ÷∆”Î ˝æ›ø… ”ªØÃÂ—È°£",
+    items: [
+      {
+        title: "…Ë±∏◊¥Ã¨ø… ”ªØ App",
+        status: "“—ÕÍ≥…",
+        placeholder: "APP",
+        tone: "#d7f2e1",
+        description: "ππΩ®…Ë±∏ ˝æ›ø¥∞Â”Î µ ±«˜ ∆’π æ£¨Ã·…˝‘ÀŒ¨–ß¬ °£",
+        tags: [" ˝æ›ø¥∞Â", "¿∂—¿", " µ ±Õ¨≤Ω"],
+      },
+      {
+        title: "‘∂≥Ã∏ÊæØ”Îπ§µ•¡™∂Ø",
+        status: "Ω¯––÷–",
+        placeholder: "ALRM",
+        tone: "#c9f2ea",
+        description: "¥ÚÕ®…Ë±∏∏ÊæØ”Îπ§µ•¡˜≥Ã£¨ µœ÷“Ï≥£øÏÀŸ±’ª∑¥¶¿Ì°£",
+        tags: ["Õ∆ÀÕ", "∏ÊæØ", "‘∆Õ¨≤Ω"],
+      },
+      {
+        title: "∂‡…Ë±∏π‹¿Ì”Î»®œﬁÃÂœµ",
+        status: "“—ÕÍ≥…",
+        placeholder: "MGR",
+        tone: "#cfeee0",
+        description: "÷ß≥÷∂‡…Ë±∏∑÷◊È°¢»®œﬁ∑÷º∂”Î≤Ÿ◊˜»’÷æø…◊∑À›°£",
+        tags: ["”√ªß»®œﬁ", "…Ë±∏∑÷◊È", "»’÷æ"],
+      },
+    ],
   },
-  {
-    title: "Êô∫ËÉΩÂø´ÈÄíÊüú",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/smart-locker.png",
-    description: "Â§öËà±Èó®ÊéßÂà∂‰∏éÁä∂ÊÄÅÂèçÈ¶àÁöÑÁ≥ªÁªüËÆæËÆ°ÔºåÁ™ÅÂá∫Á®≥ÂÆöÈÄö‰ø°‰∏éÊâßË°åÊéßÂà∂„ÄÇ",
-    tags: ["Êüú‰ΩìÊéßÂà∂", "Á≥ªÁªüÈõÜÊàê", "32 ‰Ωç MCU"],
-  },
-  {
-    title: "Êô∫ËÉΩÂÅúËΩ¶Âú∫",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/parking.png",
-    description: "Èù¢ÂêëËΩ¶ËæÜÊ£ÄÊµã‰∏éÂºïÂØºÊéßÂà∂ÁöÑÂµåÂÖ•ÂºèÊñπÊ°àÔºåÂÖºÈ°æÊµÅÁ®ãÊïàÁéá‰∏éÂèØÈù†ÊÄß„ÄÇ",
-    tags: ["ËΩ¶ËæÜÊ£ÄÊµã", "STM32", "ÊéßÂà∂Á≠ñÁï•"],
-  },
-  {
-    title: "È£éÂäõÂèëÁîµÁõëÊµãÁ≥ªÁªü",
-    status: "Â∑≤ÂÆåÊàê",
-    image: "./assets/wind.png",
-    description: "È£éÁîµËøêË°åÁä∂ÊÄÅÈááÈõÜ‰∏éÁõëÊµãÂ±ïÁ§∫ÁöÑÂçïÁâáÊú∫ÊñπÊ°àÔºåÂº∫Ë∞ÉÊï∞ÊçÆÁ®≥ÂÆö‰∏éÂ∑•Á®ãËêΩÂú∞„ÄÇ",
-    tags: ["È£éÁîµÁõëÊµã", "STM32", "Êï∞ÊçÆÈááÈõÜ"],
-  },
-  {
-    title: "K210 LoRa È°πÁõÆ",
-    status: "ËøõË°å‰∏≠",
-    image: "./assets/k210-lora.jpg",
-    description: "ÁªìÂêàËæπÁºòËÆ°ÁÆó‰∏é‰ΩéÂäüËÄóÈÄö‰ø°ÁöÑÁ≥ªÁªüÊé¢Á¥¢ÔºåÊåÅÁª≠‰ºòÂåñÁ®≥ÂÆöÊÄß‰∏éÈìæË∑ØË°®Áé∞„ÄÇ",
-    tags: ["K210", "LoRa", "ÈÄö‰ø°"],
-  },
-  {
-    title: "Â§ö‰º†ÊÑüÂô®ÂçèÂêåÁÅåÊ∫â",
-    status: "ËøõË°å‰∏≠",
-    image: "./assets/irrigation.png",
-    description: "Â§ö‰º†ÊÑüÂô®ÂçèÂêåÈ©±Âä®ÁÅåÊ∫âÁ≠ñÁï•ÔºåÂº∫ÂåñÈááÈõÜËûçÂêà‰∏éÊâßË°åËÅîÂä®„ÄÇ",
-    tags: ["C51", "ÁÅåÊ∫âÊéßÂà∂", "Â§ö‰º†ÊÑüÂô®"],
-  },
-];
+};
 
 const grid = document.getElementById("project-grid");
-
-if (grid) {
-  grid.innerHTML = projects
-    .map((project, index) => {
-      const statusClass = project.status === "Â∑≤ÂÆåÊàê" ? "status-done" : "status-doing";
-      return `
-        <article class="project-card" style="--delay: ${index * 0.08}s">
-          <div class="project-image">
-            <img src="${project.image}" alt="${project.title}" loading="lazy" />
-          </div>
-          <div class="project-head">
-            <div class="project-title">${project.title}</div>
-            <span class="project-status ${statusClass}">${project.status}</span>
-          </div>
-          <p class="project-desc">${project.description}</p>
-          <div class="project-tags">
-            ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-}
-
+const projectDesc = document.getElementById("project-desc");
 const totalCount = document.getElementById("totalCount");
 const doneCount = document.getElementById("doneCount");
 const doingCount = document.getElementById("doingCount");
+const tabButtons = document.querySelectorAll(".tab-btn");
+let activeCategory = "mcu";
+let switchTimer = null;
 
-if (totalCount && doneCount && doingCount) {
-  const total = projects.length;
-  const done = projects.filter((item) => item.status === "Â∑≤ÂÆåÊàê").length;
-  const doing = projects.filter((item) => item.status === "ËøõË°å‰∏≠").length;
+const updateCounts = (items) => {
+  if (!totalCount || !doneCount || !doingCount) return;
+  const total = items.length;
+  const done = items.filter((item) => item.status === "“—ÕÍ≥…").length;
+  const doing = items.filter((item) => item.status === "Ω¯––÷–").length;
 
   totalCount.textContent = String(total);
   doneCount.textContent = String(done);
   doingCount.textContent = String(doing);
-}
+};
 
+const buildProjectCard = (project, index) => {
+  const statusClass = project.status === "“—ÕÍ≥…" ? "status-done" : "status-doing";
+  const media = project.image
+    ? `<img src="${project.image}" alt="${project.title}" loading="lazy" />`
+    : `<div class="project-placeholder" style="--tone: ${project.tone || "rgba(255, 107, 61, 0.25)"}">
+        <span>${project.placeholder || "LAB"}</span>
+      </div>`;
+
+  return `
+    <article class="project-card" style="--delay: ${index * 0.08}s">
+      <div class="project-image">
+        ${media}
+      </div>
+      <div class="project-head">
+        <div class="project-title">${project.title}</div>
+        <span class="project-status ${statusClass}">${project.status}</span>
+      </div>
+      <p class="project-desc">${project.description}</p>
+      <div class="project-tags">
+        ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
+      </div>
+    </article>
+  `;
+};
+
+const setActiveTab = (category) => {
+  tabButtons.forEach((button) => {
+    const isActive = button.dataset.category === category;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+};
+
+const renderCategory = (category, options = {}) => {
+  const group = projectGroups[category];
+  if (!group) return;
+
+  const render = () => {
+    if (grid) {
+      grid.innerHTML = group.items.map((project, index) => buildProjectCard(project, index)).join("");
+    }
+    if (projectDesc) {
+      projectDesc.textContent = group.description;
+    }
+    updateCounts(group.items);
+  };
+
+  if (options.skipTransition || !grid) {
+    render();
+    return;
+  }
+
+  grid.classList.add("is-switching");
+  window.clearTimeout(switchTimer);
+  switchTimer = window.setTimeout(() => {
+    render();
+    grid.classList.remove("is-switching");
+  }, 160);
+};
+
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const category = button.dataset.category;
+    if (!category || category === activeCategory) return;
+    activeCategory = category;
+    setActiveTab(category);
+    renderCategory(category);
+  });
+});
+
+setActiveTab(activeCategory);
+renderCategory(activeCategory, { skipTransition: true });
